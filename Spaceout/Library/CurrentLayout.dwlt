@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 642}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 642}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,8 +106,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 913, y: 592}
-  m_MaxSize: {x: 22008, y: 18042}
+  m_MinSize: {x: 911, y: 571}
+  m_MaxSize: {x: 22006, y: 18021}
   vertical: 0
   controlID: 9
 --- !u!114 &6
@@ -130,8 +130,8 @@ MonoBehaviour:
     y: 0
     width: 1558
     height: 947
-  m_MinSize: {x: 636, y: 592}
-  m_MaxSize: {x: 18006, y: 18042}
+  m_MinSize: {x: 634, y: 571}
+  m_MaxSize: {x: 18004, y: 18021}
   vertical: 1
   controlID: 10
 --- !u!114 &7
@@ -155,8 +155,8 @@ MonoBehaviour:
     y: 0
     width: 1558
     height: 751
-  m_MinSize: {x: 636, y: 492}
-  m_MaxSize: {x: 18006, y: 14042}
+  m_MinSize: {x: 634, y: 471}
+  m_MaxSize: {x: 18004, y: 14021}
   vertical: 0
   controlID: 11
 --- !u!114 &8
@@ -177,8 +177,8 @@ MonoBehaviour:
     y: 0
     width: 656
     height: 751
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -230,10 +230,10 @@ MonoBehaviour:
     y: 0
     width: 234
     height: 751
-  m_MinSize: {x: 234, y: 492}
-  m_MaxSize: {x: 10004, y: 14042}
+  m_MinSize: {x: 234, y: 471}
+  m_MaxSize: {x: 10004, y: 14021}
   vertical: 1
-  controlID: 60
+  controlID: 97
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,7 +335,7 @@ MonoBehaviour:
   - {fileID: 22}
   - {fileID: 23}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
+    m_HSlider: 1
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -391,18 +391,18 @@ MonoBehaviour:
       y: 17
       width: 664
       height: 713
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 332, y: 356.5}
+    m_Scale: {x: 1.12, y: 1.12}
+    m_Translation: {x: 333.55997, y: 356.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -332
-      y: -356.5
-      width: 664
-      height: 713
+      x: -297.8214
+      y: -318.30356
+      width: 592.8571
+      height: 636.6071
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -541,10 +541,10 @@ MonoBehaviour:
     height: 315
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 102}
-    m_SelectedIDs: 2a080000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 66010000
     m_LastClickedID: 0
-    m_ExpandedIDs: f0fbffff000000003e0e0000
+    m_ExpandedIDs: a6c2ffff82c3ffffd8c4fffff0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -604,13 +604,12 @@ MonoBehaviour:
     m_ScenePaths: []
     m_ShowAllHits: 0
     m_SearchArea: 0
-    m_Folders:
-    - Assets/_Scripts
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Users\Isaac\Personal\GameDev\Spaceout
+  m_LastProjectPath: D:\Users\Isaac\Personal\GameDev\Spaceout\Spaceout
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -806,7 +805,7 @@ MonoBehaviour:
     x: 1560
     y: 92
     width: 360
-    height: 1046
+    height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
   m_InitialOpenURL: https://public-cdn.cloud.unity3d.com/editor/production/cloud/hub
   m_GlobalObjectTypeName: 
