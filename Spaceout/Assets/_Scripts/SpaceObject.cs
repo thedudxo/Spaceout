@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpaceObject : MonoBehaviour {
 
+    public static bool enableAllGravity = true;
 
     static float gConstant = 6.6f;
     static float distanceMultiplyer = 1.4f;
@@ -19,6 +20,8 @@ public class SpaceObject : MonoBehaviour {
 
     protected virtual void FixedUpdate()
     {
+        if (!enableAllGravity) { return; } //Debug Option
+
         SpaceObject[] gravatators = FindObjectsOfType<SpaceObject>();
         foreach(SpaceObject spaceObject in gravatators)
         {
