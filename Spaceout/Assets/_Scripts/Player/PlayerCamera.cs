@@ -13,6 +13,7 @@ public class PlayerCamera : MonoBehaviour {
     private readonly float MinimumZoom = 10;
     private readonly float zoomSpeed = 0.3f;
     private float zoom;
+    private float zoomAdded; //for debug camera overide
 
     private readonly float cameraLead = 0.15f;
     public float yShakeAdjust = 0;
@@ -69,7 +70,7 @@ public class PlayerCamera : MonoBehaviour {
         //Apply changes
         transform.position = new Vector3(follow.transform.position.x + xAdjust + xShakeAdjust + collideAdjust.x,
             follow.transform.position.y + yAdjust + yShakeAdjust + collideAdjust.y,
-            -zoom);
+            -zoom -zoomAdded);
 
     }
 
@@ -85,5 +86,10 @@ public class PlayerCamera : MonoBehaviour {
         collideTarget += transform.position;
         //Debug.Log(collideTarget);
         CollisionTween.GetComponent<CameraCollision>().Collide(collideTarget, reactionSpeed, collisionCurve);
+    }
+
+    public void AddZoom(float ammount)
+    {
+        zoomAdded = ammount;
     }
 }

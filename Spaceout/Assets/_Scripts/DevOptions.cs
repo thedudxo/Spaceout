@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DevOptions : MonoBehaviour {
 
-    public GameObject playerShip;
+
+    [SerializeField] GameObject playerShip;
+    [SerializeField] PlayerCamera cameraScript;
+    [SerializeField] Slider zoomOveride;
 
     private Vector3 spawnPoint;
 
@@ -32,5 +35,15 @@ public class DevOptions : MonoBehaviour {
         StopShip();
         playerShip.transform.position = spawnPoint;
         playerShip.transform.rotation = Quaternion.identity;
+    }
+
+    public void CameraZoom()
+    {
+        cameraScript.AddZoom(zoomOveride.value);
+    }
+
+    private void Update()
+    {
+        zoomOveride.value += Input.mouseScrollDelta.y * 10;
     }
 }

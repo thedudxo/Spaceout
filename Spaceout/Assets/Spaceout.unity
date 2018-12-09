@@ -24527,7 +24527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265, y: -5}
+  m_AnchoredPosition: {x: 170, y: -5}
   m_SizeDelta: {x: 307.8, y: 54.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682931631
@@ -24570,12 +24570,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1479777790}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 500
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2118707320}
+        m_MethodName: CameraZoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &696096722
@@ -24719,7 +24730,7 @@ RectTransform:
   m_GameObject: {fileID: 916912355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6986765, y: 1.6986767, z: 1.6986767}
+  m_LocalScale: {x: 2.3984866, y: 2.3984873, z: 2.3984873}
   m_Children:
   - {fileID: 1161073772}
   m_Father: {fileID: 2118707317}
@@ -24727,7 +24738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193, y: 38}
+  m_AnchoredPosition: {x: -89.99998, y: 38}
   m_SizeDelta: {x: 92.16, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916912357
@@ -24794,7 +24805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6839622, g: 0.9006948, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -36553,7 +36564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56, y: 112}
+  m_AnchoredPosition: {x: 22, y: 112}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889265234
@@ -36739,7 +36750,7 @@ RectTransform:
   m_GameObject: {fileID: 1914594785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6986903, y: 1.6986638, z: 1.6986638}
+  m_LocalScale: {x: 2.3985062, y: 2.398469, z: 2.398469}
   m_Children:
   - {fileID: 696096723}
   m_Father: {fileID: 2118707317}
@@ -36747,7 +36758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -191, y: -27}
+  m_AnchoredPosition: {x: -88, y: -52}
   m_SizeDelta: {x: 92.16, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914594787
@@ -36814,7 +36825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7216981, b: 0.7216981, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -37097,7 +37108,7 @@ RectTransform:
   m_GameObject: {fileID: 2118707316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30415192, y: 0.28915668, z: 0.28915668}
+  m_LocalScale: {x: 0.38068506, y: 0.36191654, z: 0.36191654}
   m_Children:
   - {fileID: 1889265233}
   - {fileID: 916912356}
@@ -37109,7 +37120,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15.400024, y: -17.200012}
-  m_SizeDelta: {x: 608, y: 342}
+  m_SizeDelta: {x: 426.01, y: 342}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2118707318
 MonoBehaviour:
@@ -37156,6 +37167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShip: {fileID: 942766899}
+  cameraScript: {fileID: 1885805546}
+  zoomOveride: {fileID: 682931631}
 --- !u!1 &2129482301
 GameObject:
   m_ObjectHideFlags: 0
