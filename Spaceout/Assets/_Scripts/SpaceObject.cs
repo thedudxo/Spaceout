@@ -5,10 +5,9 @@ using UnityEngine;
 public class SpaceObject : MonoBehaviour {
 
     public static bool enableAllGravity = true;
-
-    static float gConstant = 6.6f;
-    static float distanceMultiplyer = 1.4f;
-    static float minDistance = 150;
+    static readonly float gConstant = 10f; // this used to be 6.6
+    static readonly float distanceMultiplyer = 210f; //1.4 * 150
+    //static readonly float minDistance = 150;
 
     protected Rigidbody rb;
 
@@ -39,28 +38,31 @@ public class SpaceObject : MonoBehaviour {
         Vector3 direction = transform.position - rbToGravatate.transform.position;
         float distance = direction.magnitude;
 
-        
-        float forceMagnitude = 
-            gConstant * (rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2) //newton gravity formula thing
-            * (distance / minDistance * distanceMultiplyer); // Adjust for distance nonrealisticly
+        float newGConstant = gConstant * (distance / distanceMultiplyer); // Adjust for distance nonrealisticly 
+        float forceMagnitude = // f = g*((m1*m2) / d^2)
+            (newGConstant * ((rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2))); //newton gravity formula thing
+            
 
         Vector3 force = direction.normalized * forceMagnitude;
 
         rbToGravatate.AddForce(force);
     }
 
-    public void SetStableOrbit(SpaceObject orbitAround, float radius)
+    public void SetStableOrbit(SpaceObject orbitAround)
     {
         Debug.Log("setting orbit");
+        Vector3 distance = orbitAround.transform.position - transform.position;
+        float radius = distance.magnitude;
 
         // Doesn't make sence to orbit around yourself
-        if(orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
+        if (orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
 
         // v = sqrt(G*M/r)
-        float orbitalVelocity = Mathf.Sqrt(gConstant * orbitAround.GetRigidBody().mass / radius);
+        float newGConstant = gConstant * (radius / distanceMultiplyer); // Adjust for distance nonrealisticly 
+        float orbitalVelocity = Mathf.Sqrt(newGConstant * orbitAround.GetRigidBody().mass / radius);
+            
 
-
-        transform.position = new Vector3(radius, 0, transform.position.z);
+        //transform.position = new Vector3(radius, 0, transform.position.z);
         rb.velocity = new Vector3(0, orbitalVelocity, 0);
 
     }

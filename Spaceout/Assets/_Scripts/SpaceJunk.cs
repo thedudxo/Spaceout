@@ -5,11 +5,10 @@ using UnityEngine;
 public class SpaceJunk : SpaceObject {
 
     // Use this for initialization
-    void Start()
+    new void Start()
     {
         base.Start();
-        Debug.Log(Manager.instance);
-        SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>(), 1000f);
+        SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>());
     }
 
     private void Awake()
@@ -22,9 +21,10 @@ public class SpaceJunk : SpaceObject {
     {
         //Destroy(gameObject);
     }
-
+    /*
     // Update is called once per frame
     void FixedUpdate () {
         base.FixedUpdate();
 	}
+    */
 }
