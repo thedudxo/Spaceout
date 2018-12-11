@@ -23,6 +23,11 @@ public class DevOptions : MonoBehaviour {
         Debug.Log("Gravity Enabled: " + value);
     }
 
+    public void setPlayerInvincible(bool value)
+    {
+        player.invincible = value;
+    }
+
     public void StopShip()
     {
         player.StopShip();
@@ -43,4 +48,6 @@ public class DevOptions : MonoBehaviour {
     {
         zoomOveride.value += Input.mouseScrollDelta.y * 10;
     }
+
+ 
 }

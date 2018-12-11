@@ -26,6 +26,7 @@ public class Player : SpaceObject {
     private  float rotateSpeed = 3;
     private ScreenshakeManager screenshakeManager = new ScreenshakeManager();
 
+    public bool invincible = false;
     public bool dead = false;
     private Vector3 spawnPoint;
     [SerializeField] private GameObject deadUI;
@@ -108,10 +109,13 @@ public class Player : SpaceObject {
 
     public void KillPlayer()
     {
+        if (invincible) { Debug.Log("player is invincible"); return; }
+
         dead = true;
         Debug.Log("Player was killed");
         //StopShip();
         deadUI.SetActive(true);
+        PlayerCamera.freezeCamera = true;
     }
 
     public void StopShip()
@@ -127,5 +131,6 @@ public class Player : SpaceObject {
         transform.rotation = Quaternion.identity;
         deadUI.SetActive(false);
         dead = false;
+        PlayerCamera.freezeCamera = false;
     }
 }

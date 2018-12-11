@@ -24,6 +24,8 @@ public class PlayerCamera : MonoBehaviour {
     private readonly float CollisionCameraModifier = 10f;
     private readonly float reactionSpeed = 10f;
 
+    public static bool freezeCamera = false;
+
     public void Shake(float x, float y)
     {
 
@@ -36,7 +38,7 @@ public class PlayerCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-
+        if (freezeCamera) { Debug.Log("camera froze"); return; }
         //Zoom the camera
         Vector3 Velocity = follow.GetComponent<Player>().GetRigidBody().velocity;
         float totalVelocity = Mathf.Sqrt(Mathf.Pow(Velocity.x,2)  + Mathf.Pow(Velocity.y,2));
@@ -78,6 +80,7 @@ public class PlayerCamera : MonoBehaviour {
 
     public void SetCollideTarget()
     {   //delayed raction on a collision
+        if (freezeCamera) { return; }
         Vector3 direction = follow.GetComponent<Rigidbody>().velocity.normalized;
         float distance = follow.GetComponent<Rigidbody>().velocity.magnitude;
         Vector3 collideTarget = direction * distance * CollisionCameraModifier;

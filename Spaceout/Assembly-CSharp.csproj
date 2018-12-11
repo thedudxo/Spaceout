@@ -64,7 +64,6 @@
     <Compile Include="Assets\_Scripts\Player\CameraCollision.cs" />
     <Compile Include="Assets\_Scripts\Player\Player.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerCamera.cs" />
-    <Compile Include="Assets\_Scripts\Player\PlayerCameraBackup.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerParticles.cs" />
     <Compile Include="Assets\_Scripts\Player\Screenshake.cs" />
     <Compile Include="Assets\_Scripts\Player\ScreenshakeManager.cs" />

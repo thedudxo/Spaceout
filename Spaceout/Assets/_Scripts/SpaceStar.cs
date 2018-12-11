@@ -16,11 +16,12 @@ public class SpaceStar : SpaceObject {
     private void OnCollisionEnter(Collision collision)
     {
         Manager.instance.player.StopShip();
-        //player dissolves slightly into the star before stopping, so it doesnt seem solid
+
     }
     
     private void OnTriggerEnter(Collider other)
     {
         Manager.instance.player.KillPlayer();
+        //player dissolves slightly into the star before stopping, so it doesnt seem solid
     }
 }
