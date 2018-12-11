@@ -24,17 +24,20 @@ public class Player : SpaceObject {
     private bool engineCutout = false;
     private float EnginePower = 35;
     private  float rotateSpeed = 3;
-
     private ScreenshakeManager screenshakeManager = new ScreenshakeManager();
 
+    public bool dead = false;
+    private Vector3 spawnPoint;
+    [SerializeField] private GameObject deadUI;
 
 
-    // Use this for initialization
+
+
     protected override void Start() {
         base.Start();
         EnginePower *= engineStutterChance;
         playerParticles = new PlayerParticles(rb, playerCamera, engineParticles, passiveEngineParticles, collsionParticles, speedParticles, EngineStutterParticles, rotationParticles);
-        
+        spawnPoint = transform.position;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,6 +52,8 @@ public class Player : SpaceObject {
 
     private void Update()
     {
+        if (dead) { return; }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             rotateSpeed *= -1;
@@ -86,13 +91,10 @@ public class Player : SpaceObject {
         
     }
 
-
     protected override void FixedUpdate() {
         base.FixedUpdate();
+        if (dead) { return; }
 
-        
-
-       
         rb.AddTorque(0, 0, Input.GetAxis("Horizontal") * rotateSpeed);
         rb.AddTorque(0, 0, Random.Range(-Input.GetAxis("Vertical") * 2, Input.GetAxis("Vertical") * 2));
         playerParticles.EmitRotationParticles(rotateSpeed);
@@ -101,10 +103,29 @@ public class Player : SpaceObject {
         rb.AddTorque(0, 0, - (rb.angularVelocity.z / 4));
         
 
-
-
-
-
         background.transform.position = new Vector3(transform.position.x, transform.position.y, background.transform.position.z);
+    }
+
+    public void KillPlayer()
+    {
+        dead = true;
+        Debug.Log("Player was killed");
+        //StopShip();
+        deadUI.SetActive(true);
+    }
+
+    public void StopShip()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    public void RespawnShip()
+    {
+        transform.position = spawnPoint;
+        transform.rotation = Quaternion.identity;
+        deadUI.SetActive(false);
+        dead = false;
     }
 }

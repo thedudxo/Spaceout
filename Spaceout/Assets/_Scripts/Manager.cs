@@ -5,6 +5,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
 
     public GameObject star;
+    public Player player;
     public static Manager instance = null;
 
 	// Use this for initialization

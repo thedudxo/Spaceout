@@ -10,11 +10,11 @@ public class DevOptions : MonoBehaviour {
     [SerializeField] PlayerCamera cameraScript;
     [SerializeField] Slider zoomOveride;
 
-    private Vector3 spawnPoint;
+    Player player;
 
     private void Start()
     {
-        spawnPoint = playerShip.transform.position;
+        player = playerShip.GetComponent<Player>();
     }
 
     public void ToggleGravity(bool value)
@@ -25,16 +25,13 @@ public class DevOptions : MonoBehaviour {
 
     public void StopShip()
     {
-        Rigidbody rb = playerShip.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        player.StopShip();
     }
 
     public void RespawnShip()
     {
-        StopShip();
-        playerShip.transform.position = spawnPoint;
-        playerShip.transform.rotation = Quaternion.identity;
+        player.StopShip();
+        player.RespawnShip();
     }
 
     public void CameraZoom()

@@ -21,7 +21,7 @@ public class SpaceObject : MonoBehaviour {
     {
         if (!enableAllGravity) { return; } //Debug Option
 
-        SpaceObject[] gravatators = FindObjectsOfType<SpaceObject>();
+        SpaceObject[] gravatators = FindObjectsOfType<SpaceObject>(); // could be optimised, in manager script
         foreach(SpaceObject spaceObject in gravatators)
         {
             if(spaceObject != this)
