@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpaceJunk : SpaceObject {
 
+    public int orbitDirection = 0;
+
     // Use this for initialization
     new void Start()
     {
         base.Start();
-        SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>());
+        SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>() , orbitDirection);
     }
 
     private void Awake()

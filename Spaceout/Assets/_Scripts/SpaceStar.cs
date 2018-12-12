@@ -15,13 +15,19 @@ public class SpaceStar : SpaceObject {
     
     private void OnCollisionEnter(Collision collision)
     {
-        Manager.instance.player.StopShip();
+        if(collision.gameObject.tag == "Player")
+        {
+            Manager.instance.player.StopShip();
+        }
+        
 
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
-        Manager.instance.player.KillPlayer();
-        //player dissolves slightly into the star before stopping, so it doesnt seem solid
+        if (other.gameObject.tag == "Player") { 
+            Manager.instance.player.KillPlayer();
+            //player dissolves slightly into the star before stopping, so it doesnt seem solid
+        }
     }
 }

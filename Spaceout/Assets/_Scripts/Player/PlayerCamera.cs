@@ -38,7 +38,9 @@ public class PlayerCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        if (freezeCamera) { Debug.Log("camera froze"); return; }
+        if (freezeCamera) {
+            Debug.Log("camera froze");
+            return; }
         //Zoom the camera
         Vector3 Velocity = follow.GetComponent<Player>().GetRigidBody().velocity;
         float totalVelocity = Mathf.Sqrt(Mathf.Pow(Velocity.x,2)  + Mathf.Pow(Velocity.y,2));

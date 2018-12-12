@@ -48,22 +48,33 @@ public class SpaceObject : MonoBehaviour {
         rbToGravatate.AddForce(force);
     }
 
-    public void SetStableOrbit(SpaceObject orbitAround)
+    public void SetStableOrbit(SpaceObject orbitAround, int direction = 0)
     {
+        // Doesn't make sence to orbit around yourself
+        if (orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
+
         Debug.Log("setting orbit");
         Vector3 distance = orbitAround.transform.position - transform.position;
         float radius = distance.magnitude;
 
-        // Doesn't make sence to orbit around yourself
-        if (orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
 
-        // v = sqrt(G*M/r)
+        // v = sqrt(G*M/r)   Formula for velicity in an orbit
         float newGConstant = gConstant * (radius / distanceMultiplyer); // Adjust for distance nonrealisticly 
-        float orbitalVelocity = Mathf.Sqrt(newGConstant * orbitAround.GetRigidBody().mass / radius);
-            
+        float orbitalSpeed = Mathf.Sqrt(newGConstant * orbitAround.GetRigidBody().mass / radius);
 
-        //transform.position = new Vector3(radius, 0, transform.position.z);
-        rb.velocity = new Vector3(0, orbitalVelocity, 0);
+
+        //adjust velocity based on position
+        Vector3 tangent = new Vector3( distance.y, -distance.x, 0); //swap the components and negate one to get a tangent
+        tangent.Normalize();
+        Vector3 orbitalVelocity = tangent * orbitalSpeed;
+
+        //Which way to orbit, randomized if none specified
+        while (direction == 0) { direction = Random.Range(-1, 2); }
+        if (direction > 0)
+        { orbitalVelocity *= -1; }
+
+        //apply chnages
+        rb.velocity = orbitalVelocity;
 
     }
 
