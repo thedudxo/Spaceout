@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &85098281
 GameObject:
@@ -374,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a539dea851a8de4dbb59475d3b88bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   dangerousStar: 1
   rotationSpeed: 0.025
 --- !u!54 &85098287
@@ -9909,6 +9911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &180610433
 GameObject:
@@ -10023,6 +10026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &204746073
 GameObject:
@@ -10137,6 +10141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &235422306
 GameObject:
@@ -19706,6 +19711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &403605523
 GameObject:
@@ -19980,6 +19986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &478569043
 GameObject:
@@ -20314,7 +20321,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
+--- !u!1 &663585604 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 74d24c2283ca9c640808663baf1daff2, type: 3}
+  m_PrefabInternal: {fileID: 1482920873}
+--- !u!114 &663585605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663585604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec2d55901898a944922b880e96e56d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reverseGravity: 1
+--- !u!54 &663585606
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663585604}
+  serializedVersion: 2
+  m_Mass: 100000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &664603388
 GameObject:
   m_ObjectHideFlags: 0
@@ -25412,6 +25451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f75c7d13b133bf49a5f6b7af9b14d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   playerCamera: {fileID: 1885805541}
   background: {fileID: 366706313}
   engineParticles: {fileID: 664603391}
@@ -25685,6 +25725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!54 &1070996366
 Rigidbody:
@@ -25881,6 +25922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1110317792
 GameObject:
@@ -26138,6 +26180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1222419439
 GameObject:
@@ -26368,6 +26411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1341461414
 GameObject:
@@ -26482,6 +26526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1355324940
 GameObject:
@@ -26665,6 +26710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1365082541
 GameObject:
@@ -31796,6 +31842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1649617321
 GameObject:
@@ -32007,6 +32054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1699097372
 GameObject:
@@ -32243,6 +32291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1755005830
 GameObject:
@@ -32529,6 +32578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1816200985
 GameObject:
@@ -37674,6 +37724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &1914594785
 GameObject:
@@ -37910,6 +37961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &2026160673
 GameObject:
@@ -38058,6 +38110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242581fb21796a64d995555351826bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseGravity: 0
   orbitDirection: 0
 --- !u!1 &2118707316
 GameObject:

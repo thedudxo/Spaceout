@@ -5,11 +5,12 @@ using UnityEngine;
 public class SpaceObject : MonoBehaviour {
 
     public static bool enableAllGravity = true;
-    static readonly float gConstant = 10f; // this used to be 6.6
-    static readonly float distanceMultiplyer = 210f; //1.4 * 150
-    //static readonly float minDistance = 150;
+    public bool reverseGravity = false; //will repell away objects if true
 
+    static readonly float gConstant = 10f;
+    static readonly float distanceMultiplyer = 210f;
     protected Rigidbody rb;
+
 
     protected virtual void Start()
     {
@@ -44,6 +45,7 @@ public class SpaceObject : MonoBehaviour {
             
 
         Vector3 force = direction.normalized * forceMagnitude;
+        if(reverseGravity) { force *= -1; }
 
         rbToGravatate.AddForce(force);
     }
