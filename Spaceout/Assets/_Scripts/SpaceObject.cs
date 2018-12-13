@@ -36,14 +36,22 @@ public class SpaceObject : MonoBehaviour {
     {
         Rigidbody rbToGravatate = objToGravatate.rb;
 
+        //create a vector between spaceobjects
         Vector3 direction = transform.position - rbToGravatate.transform.position;
         float distance = direction.magnitude;
 
-        float newGConstant = gConstant * (distance / distanceMultiplyer); // Adjust for distance nonrealisticly 
-        float forceMagnitude = // f = g*((m1*m2) / d^2)
-            (newGConstant * ((rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2))); //newton gravity formula thing
-            
+        //Distance needs to be changed to towards the ring, instead of star.
+        if (reverseGravity) 
+        {
+            distance = (Manager.instance.ringRadius + 50) - distance;
+        }
 
+        //calculate the gravitational force
+        float newGConstant = gConstant * (distance / distanceMultiplyer); // Adjust for distance nonrealisticly 
+        float forceMagnitude = // f = g*((m1*m2) / d^2) //newton gravity formula thing
+            (newGConstant * ((rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2))); 
+            
+        
         Vector3 force = direction.normalized * forceMagnitude;
         if(reverseGravity) { force *= -1; }
 

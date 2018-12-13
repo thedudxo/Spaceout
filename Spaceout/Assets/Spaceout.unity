@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31673694, g: 0.32295123, b: 0.30383438, a: 1}
+  m_IndirectSpecularColor: {r: 0.3167362, g: 0.3229507, b: 0.30383405, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20333,7 +20333,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663585604}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec2d55901898a944922b880e96e56d5, type: 3}
   m_Name: 
@@ -20346,7 +20346,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663585604}
   serializedVersion: 2
-  m_Mass: 100000
+  m_Mass: 8000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -25013,6 +25013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 85098281}
   player: {fileID: 942766900}
+  ringRadius: 1736
 --- !u!1 &682931629
 GameObject:
   m_ObjectHideFlags: 0
@@ -32651,7 +32652,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1824347028}
-  m_Text: "There is a small cube \norbiting somewhere"
+  m_Text: Spaceout 0.2
   m_OffsetZ: 0
   m_CharacterSize: 0.27
   m_LineSpacing: 1
