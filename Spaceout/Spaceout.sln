@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceout", "Assembly-CSharp.csproj", "{A5F6F004-7AF9-6B50-B9D7-6DC3CBA379A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{A5F6F004-7AF9-6B50-B9D7-6DC3CBA379A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceout", "Assembly-CSharp-Editor.csproj", "{D70D793F-6C7C-3D92-4EAB-B4F0F64563EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{D70D793F-6C7C-3D92-4EAB-B4F0F64563EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

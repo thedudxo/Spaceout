@@ -63,7 +63,6 @@ public class SpaceObject : MonoBehaviour {
         // Doesn't make sence to orbit around yourself
         if (orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
 
-        Debug.Log("setting orbit");
         Vector3 distance = orbitAround.transform.position - transform.position;
         float radius = distance.magnitude;
 

@@ -86,7 +86,7 @@ public class PlayerCamera : MonoBehaviour {
         float distance = follow.GetComponent<Rigidbody>().velocity.magnitude;
         Vector3 collideTarget = direction * distance * CollisionCameraModifier;
         collideTarget.z = 0;
-        Debug.Log(collideTarget);
+        //Debug.Log(collideTarget);
         collideTarget += transform.position;
         //Debug.Log(collideTarget);
         CollisionTween.GetComponent<CameraCollision>().Collide(collideTarget, reactionSpeed, collisionCurve);
