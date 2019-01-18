@@ -10,6 +10,7 @@ public class SpaceJunk : SpaceObject {
     new void Start()
     {
         base.Start();
+        RandomPosition();
         SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>() , orbitDirection);
     }
 

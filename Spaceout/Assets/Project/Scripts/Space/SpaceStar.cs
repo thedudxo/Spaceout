@@ -11,6 +11,7 @@ public class SpaceStar : SpaceObject {
     {
         base.FixedUpdate();
         transform.Rotate(new Vector3( 0, 0, rotationSpeed));
+        //Debug.Log(Manager.instance.player.gameObject.GetComponent<SpaceObject>());
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -23,11 +24,15 @@ public class SpaceStar : SpaceObject {
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (other.gameObject.tag == "Player") { 
-            Manager.instance.player.KillPlayer();
-            //player dissolves slightly into the star before stopping, so it doesnt seem solid
-        }
+        //object dissolves slightly into the star before stopping, so it doesnt seem solid
+        SpaceObject collision = collider.gameObject.GetComponent<SpaceObject>();
+
+        if (collision == null) { return; }
+        Debug.Log(collision);
+        collision.Destroy();
+        
+
     }
 }

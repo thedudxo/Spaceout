@@ -36,7 +36,6 @@ public class PlayerCamera : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate () {
         if (freezeCamera) {
-            Debug.Log("camera froze");
             return;
         }
 
