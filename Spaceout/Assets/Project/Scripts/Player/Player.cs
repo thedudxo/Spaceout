@@ -6,6 +6,7 @@ public class Player : SpaceObject {
 
     public GameObject playerCamera;
     public GameObject background;
+    public PlayerSound playerSound;
 
     private PlayerParticles playerParticles;
     [SerializeField] private ParticleSystem engineParticles;
@@ -69,6 +70,7 @@ public class Player : SpaceObject {
         {
             engineCutout = true;
             EngineStutterParticles.Emit(100);
+            playerSound.Stutter();
         }
 
         if (engineCutout)
@@ -134,5 +136,6 @@ public class Player : SpaceObject {
         deadUI.SetActive(false);
         dead = false;
         PlayerCamera.freezeCamera = false;
+       playerSound.Respawn();
     }
 }

@@ -131,8 +131,10 @@
     <Compile Include="Assets\Project\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Project\Scripts\Player\PlayerCamera.cs" />
     <Compile Include="Assets\Project\Scripts\Player\PlayerParticles.cs" />
+    <Compile Include="Assets\Project\Scripts\Player\PlayerSound.cs" />
     <Compile Include="Assets\Project\Scripts\Player\Screenshake.cs" />
     <Compile Include="Assets\Project\Scripts\Player\ScreenshakeManager.cs" />
+    <Compile Include="Assets\Project\Scripts\Sound.cs" />
     <Compile Include="Assets\Project\Scripts\Space\SpaceJunk.cs" />
     <Compile Include="Assets\Project\Scripts\Space\SpaceObject.cs" />
     <Compile Include="Assets\Project\Scripts\Space\SpaceStar.cs" />
