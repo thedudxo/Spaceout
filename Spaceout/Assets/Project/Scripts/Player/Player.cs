@@ -9,23 +9,22 @@ public class Player : SpaceObject {
     public PlayerSound playerSound;
 
     private PlayerParticles playerParticles;
-    [SerializeField] private ParticleSystem engineParticles;
-    [SerializeField] private ParticleSystem passiveEngineParticles;
-    [SerializeField] private ParticleSystem EngineStutterParticles;
-    [SerializeField] private ParticleSystem collsionParticles;
-    [SerializeField] private ParticleSystem speedParticles;
-    [SerializeField] private ParticleSystem rotationParticles;
+    
+    [SerializeField] readonly private ParticleSystem
+        engineParticles,
+        passiveEngineParticles,
+        EngineStutterParticles,
+        collsionParticles,
+        speedParticles,
+        rotationParticles;
 
-
-    private readonly float engineStutterChance = 1.15f;
-    private readonly float engineCutOutChance = 0.02f;
-    private readonly float engineMaxCutOutTime = 0.4f;
-    private readonly float engineMinCutOutTime = 0.1f;
     private float engineCutOutTimer;
     private bool engineCutout = false;
 
-    private float EnginePower = 35;
-    private  float rotateSpeed = 4;
+    private float 
+        EnginePower = 35,
+        rotateSpeed = 4;
+
     private ScreenshakeManager screenshakeManager = new ScreenshakeManager();
 
     public bool invincible = false;
@@ -38,7 +37,6 @@ public class Player : SpaceObject {
 
     protected override void Start() {
         base.Start();
-        EnginePower *= engineStutterChance * rb.mass;
         rotateSpeed *= rb.mass;
         playerParticles = new PlayerParticles(rb, playerCamera, engineParticles, passiveEngineParticles, collsionParticles, speedParticles, EngineStutterParticles, rotationParticles);
         spawnPoint = transform.position;
@@ -65,34 +63,7 @@ public class Player : SpaceObject {
 
         screenshakeManager.Update();
         playerParticles.Update();
-        //Cut engine?
-        if (Random.Range(0f, 2f)  < engineCutOutChance)
-        {
-            engineCutout = true;
-            EngineStutterParticles.Emit(100);
-            playerSound.Stutter();
-        }
-
-        if (engineCutout)
-        {
-            engineCutOutTimer += Time.deltaTime;
-            if (engineCutOutTimer > Random.Range(engineMinCutOutTime, engineMaxCutOutTime))
-            {
-                engineCutout = false;
-                engineCutOutTimer = 0;
-            }
-        } else { 
-            // boost the engines!
-            if ((int)Random.Range(1, engineStutterChance + 1) == 1)
-            {
-
-                rb.AddForce(transform.up * EnginePower * Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1));
-                playerParticles.EmitEngineParticles();
-
-                if (Input.GetKey(KeyCode.W)) //add screenshake lasting for one frame
-                { screenshakeManager.AddScreenshake(0.15f, playerCamera, 1.0f / (1.0f / Time.deltaTime)); }
-            }
-        }
+        
         
     }
 

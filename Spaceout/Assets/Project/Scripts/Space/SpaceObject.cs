@@ -13,7 +13,7 @@ public class SpaceObject : MonoBehaviour {
     public static float RandomPosMaxRadius = -200; // += ring radius (done in manager)
     public static float RandomPosMinRadius = +500; // += star radius
 
-    protected Rigidbody rb;
+    public Rigidbody rb;
 
 
     protected virtual void Start()
