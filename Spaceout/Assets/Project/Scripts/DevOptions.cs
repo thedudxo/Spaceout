@@ -25,6 +25,7 @@ public class DevOptions : MonoBehaviour {
 
     public void setPlayerInvincible(bool value)
     {
+        if(player == null) { return; }
         player.invincible = value;
     }
 

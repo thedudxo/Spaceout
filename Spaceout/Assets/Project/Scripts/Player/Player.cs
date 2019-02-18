@@ -23,8 +23,9 @@ public class Player : SpaceObject {
     private readonly float engineMinCutOutTime = 0.1f;
     private float engineCutOutTimer;
     private bool engineCutout = false;
+
     private float EnginePower = 35;
-    private  float rotateSpeed = 3;
+    private  float rotateSpeed = 4;
     private ScreenshakeManager screenshakeManager = new ScreenshakeManager();
 
     public bool invincible = false;
@@ -104,21 +105,21 @@ public class Player : SpaceObject {
         playerParticles.EmitRotationParticles(rotateSpeed);
 
         //slow down the rotation!
-        rb.AddTorque(0, 0, - (rb.angularVelocity.z / 4));
+        //rb.AddTorque(0, 0, - (rb.angularVelocity.z / 4f));
+        rb.AddTorque(0, 0, - (rb.angularVelocity.z * 40f));
+
         
 
         background.transform.position = new Vector3(transform.position.x, transform.position.y, background.transform.position.z);
     }
 
-    public void KillPlayer()
+    override public void Destroy()
     {
         if (invincible) { Debug.Log("player is invincible"); return; }
-
-        dead = true;
-        Debug.Log("Player was killed");
-        //StopShip();
-        deadUI.SetActive(true);
         PlayerCamera.freezeCamera = true;
+        Debug.Log("Player was killed");
+        deadUI.SetActive(true);
+        dead = true;
     }
 
     public void StopShip()

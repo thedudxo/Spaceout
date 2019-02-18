@@ -5,10 +5,14 @@ using UnityEngine;
 public class SpaceObject : MonoBehaviour {
 
     public static bool enableAllGravity = true;
-    public bool reverseGravity = false; //will repell away objects if true
+    public bool reverseGravity = false; //will repell away objects if true. might only work for centered objects.
 
     static readonly float gConstant = 10f;
     static readonly float distanceMultiplyer = 210f;
+
+    public static float RandomPosMaxRadius = -200; // += ring radius (done in manager)
+    public static float RandomPosMinRadius = +500; // += star radius
+
     protected Rigidbody rb;
 
 
@@ -16,6 +20,7 @@ public class SpaceObject : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        
     }
 
     protected virtual void FixedUpdate()
@@ -23,9 +28,9 @@ public class SpaceObject : MonoBehaviour {
         if (!enableAllGravity) { return; } //Debug Option
 
         SpaceObject[] gravatators = FindObjectsOfType<SpaceObject>(); // could be optimised, in manager script
-        foreach(SpaceObject spaceObject in gravatators)
+        foreach (SpaceObject spaceObject in gravatators)
         {
-            if(spaceObject != this)
+            if (spaceObject != this)
             {
                 Gravatate(spaceObject);
             }
@@ -41,7 +46,7 @@ public class SpaceObject : MonoBehaviour {
         float distance = direction.magnitude;
 
         //Distance needs to be changed to towards the ring, instead of star.
-        if (reverseGravity) 
+        if (reverseGravity)
         {
             distance = (Manager.instance.ringRadius + 50) - distance;
         }
@@ -49,11 +54,11 @@ public class SpaceObject : MonoBehaviour {
         //calculate the gravitational force
         float newGConstant = gConstant * (distance / distanceMultiplyer); // Adjust for distance nonrealisticly 
         float forceMagnitude = // f = g*((m1*m2) / d^2) //newton gravity formula thing
-            (newGConstant * ((rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2))); 
-            
-        
+            (newGConstant * ((rb.mass * rbToGravatate.mass) / Mathf.Pow(distance, 2)));
+
+
         Vector3 force = direction.normalized * forceMagnitude;
-        if(reverseGravity) { force *= -1; }
+        if (reverseGravity) { force *= -1; }
 
         rbToGravatate.AddForce(force);
     }
@@ -63,7 +68,6 @@ public class SpaceObject : MonoBehaviour {
         // Doesn't make sence to orbit around yourself
         if (orbitAround == this) { Debug.Log(this + " tried to orbit itself"); return; };
 
-        Debug.Log("setting orbit");
         Vector3 distance = orbitAround.transform.position - transform.position;
         float radius = distance.magnitude;
 
@@ -74,7 +78,7 @@ public class SpaceObject : MonoBehaviour {
 
 
         //adjust velocity based on position
-        Vector3 tangent = new Vector3( distance.y, -distance.x, 0); //swap the components and negate one to get a tangent
+        Vector3 tangent = new Vector3(distance.y, -distance.x, 0); //swap the components and negate one to get a tangent
         tangent.Normalize();
         Vector3 orbitalVelocity = tangent * orbitalSpeed;
 
@@ -86,6 +90,23 @@ public class SpaceObject : MonoBehaviour {
         //apply chnages
         rb.velocity = orbitalVelocity;
 
+    }
+
+    public void RandomPosition()
+    {   //set to a random position within the ring but not too close to the star
+        //Does not handle objects spawing within eachother
+
+        Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        float magnitude = Random.Range(RandomPosMinRadius, RandomPosMaxRadius);
+        Vector3 position = direction * magnitude;
+
+        transform.position = position;
+
+    }
+
+    virtual public void Destroy()
+    {
+        Debug.Log("problem");
     }
 
     public Rigidbody GetRigidBody()
