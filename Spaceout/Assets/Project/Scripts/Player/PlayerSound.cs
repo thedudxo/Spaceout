@@ -32,7 +32,7 @@ public class PlayerSound : MonoBehaviour{
         Sounds.Add(enginePassive = new Sound(_enginePassive, 0.1f, true));
         Sounds.Add(sideThrusters = new Sound(_sideThrusters, 0.1f, true));
         Sounds.Add(engineStutter = new Sound(_engineStutter, 1f));
-        rb = gameObject.GetComponentInParent<Rigidbody>();
+        rb = player.GetComponent<Rigidbody>();
     }
 
 
