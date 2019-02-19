@@ -7,10 +7,8 @@ public class Player : SpaceObject {
     public GameObject playerCamera;
     public GameObject background;
     public PlayerSound playerSound;
-
-    private PlayerParticles playerParticles;
     
-    [SerializeField] readonly private ParticleSystem
+    public ParticleSystem
         engineParticles,
         passiveEngineParticles,
         EngineStutterParticles,
@@ -18,28 +16,33 @@ public class Player : SpaceObject {
         speedParticles,
         rotationParticles;
 
-    private float engineCutOutTimer;
-    private bool engineCutout = false;
+    [HideInInspector] public PlayerParticles playerParticles;
 
-    private float 
+    [HideInInspector] public bool engineCutout = false;
+    [HideInInspector] public float
+        engineCutOutTimer,
         EnginePower = 35,
         rotateSpeed = 4;
-
-    private ScreenshakeManager screenshakeManager = new ScreenshakeManager();
 
     public bool invincible = false;
     public bool dead = false;
     private Vector3 spawnPoint;
     [SerializeField] private GameObject deadUI;
 
+    [HideInInspector] public ScreenshakeManager screenshakeManager = new ScreenshakeManager();
+    PlayerEngine playerEngine;
+
 
 
 
     protected override void Start() {
         base.Start();
-        rotateSpeed *= rb.mass;
+        
         playerParticles = new PlayerParticles(rb, playerCamera, engineParticles, passiveEngineParticles, collsionParticles, speedParticles, EngineStutterParticles, rotationParticles);
+        playerEngine = new PlayerEngine(this);
+
         spawnPoint = transform.position;
+        rotateSpeed *= rb.mass;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -56,12 +59,10 @@ public class Player : SpaceObject {
     {
         if (dead) { return; }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            rotateSpeed *= -1;
-        }
+        
 
         screenshakeManager.Update();
+        playerEngine.Update();
         playerParticles.Update();
         
         

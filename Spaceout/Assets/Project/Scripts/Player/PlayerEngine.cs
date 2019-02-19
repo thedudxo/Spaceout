@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEngine : MonoBehaviour {
+public class PlayerEngine {
 
-    Player player;
+    Player p;
 
     private readonly float 
         engineStutterChance = 1.15f,
@@ -13,39 +13,39 @@ public class PlayerEngine : MonoBehaviour {
         engineMinCutOutTime = 0.1f;
 	// Use this for initialization
 
-	void Start (Player player) {
-        this.player = player;
+	public PlayerEngine (Player player) {
+        this.p = player;
 		player.EnginePower *= engineStutterChance * player.rb.mass;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public void Update () {
+
 		//Cut engine?
         if (Random.Range(0f, 2f)  < engineCutOutChance)
         {
-            engineCutout = true;
-            EngineStutterParticles.Emit(100);
-            playerSound.Stutter();
+            p.engineCutout = true;
+            p.EngineStutterParticles.Emit(100);
+            p.playerSound.Stutter();
         }
 
-        if (engineCutout)
+        if (p.engineCutout)
         {
-            engineCutOutTimer += Time.deltaTime;
-            if (engineCutOutTimer > Random.Range(engineMinCutOutTime, engineMaxCutOutTime))
+            p.engineCutOutTimer += Time.deltaTime;
+            if (p.engineCutOutTimer > Random.Range(engineMinCutOutTime, engineMaxCutOutTime))
             {
-                engineCutout = false;
-                engineCutOutTimer = 0;
+                p.engineCutout = false;
+                p.engineCutOutTimer = 0;
             }
         } else { 
             // boost the engines!
             if ((int)Random.Range(1, engineStutterChance + 1) == 1)
             {
 
-                player.rb.AddForce(transform.up * EnginePower * Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1));
-                playerParticles.EmitEngineParticles();
+                p.rb.AddForce(p.transform.up * p.EnginePower * Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1));
+                p.playerParticles.EmitEngineParticles();
 
                 if (Input.GetKey(KeyCode.W)) //add screenshake lasting for one frame
-                { screenshakeManager.AddScreenshake(0.15f, playerCamera, 1.0f / (1.0f / Time.deltaTime)); }
+                { p.screenshakeManager.AddScreenshake(0.15f, p.playerCamera, 1.0f / (1.0f / Time.deltaTime)); }
             }
         }
 	}
