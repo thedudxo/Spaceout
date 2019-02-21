@@ -20,6 +20,7 @@ public class SpaceJunk : SpaceObject {
     }
 
 
+
     private void OnCollisionEnter(Collision collision)
     {
         //Destroy(gameObject);

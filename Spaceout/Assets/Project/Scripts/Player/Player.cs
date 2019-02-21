@@ -18,12 +18,6 @@ public class Player : SpaceObject {
 
     [HideInInspector] public PlayerParticles playerParticles;
 
-    [HideInInspector] public bool engineCutout = false;
-    [HideInInspector] public float
-        engineCutOutTimer,
-        EnginePower = 35,
-        rotateSpeed = 4;
-
     public bool invincible = false;
     public bool dead = false;
     private Vector3 spawnPoint;
@@ -31,6 +25,7 @@ public class Player : SpaceObject {
 
     [HideInInspector] public ScreenshakeManager screenshakeManager = new ScreenshakeManager();
     PlayerEngine playerEngine;
+    PlayerSideThrusters playerSideThrusters;
 
 
 
@@ -38,11 +33,12 @@ public class Player : SpaceObject {
     protected override void Start() {
         base.Start();
         
-        playerParticles = new PlayerParticles(rb, playerCamera, engineParticles, passiveEngineParticles, collsionParticles, speedParticles, EngineStutterParticles, rotationParticles);
-        playerEngine = new PlayerEngine(this);
+        playerParticles     = new PlayerParticles(rb, playerCamera, engineParticles, passiveEngineParticles, collsionParticles, speedParticles, EngineStutterParticles, rotationParticles);
+        playerEngine        = new PlayerEngine(this);
+        playerSideThrusters = new PlayerSideThrusters(this);
 
         spawnPoint = transform.position;
-        rotateSpeed *= rb.mass;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,8 +55,6 @@ public class Player : SpaceObject {
     {
         if (dead) { return; }
 
-        
-
         screenshakeManager.Update();
         playerEngine.Update();
         playerParticles.Update();
@@ -72,15 +66,7 @@ public class Player : SpaceObject {
         base.FixedUpdate();
         if (dead) { return; }
 
-        rb.AddTorque(0, 0, Input.GetAxis("Horizontal") * rotateSpeed);
-        rb.AddTorque(0, 0, Random.Range(-Input.GetAxis("Vertical") * 2, Input.GetAxis("Vertical") * 2));
-        playerParticles.EmitRotationParticles(rotateSpeed);
-
-        //slow down the rotation!
-        //rb.AddTorque(0, 0, - (rb.angularVelocity.z / 4f));
-        rb.AddTorque(0, 0, - (rb.angularVelocity.z * 40f));
-
-        
+        playerSideThrusters.FixedUpdate();
 
         background.transform.position = new Vector3(transform.position.x, transform.position.y, background.transform.position.z);
     }
@@ -108,6 +94,6 @@ public class Player : SpaceObject {
         deadUI.SetActive(false);
         dead = false;
         PlayerCamera.freezeCamera = false;
-       playerSound.Respawn();
+        playerSound.Respawn();
     }
 }

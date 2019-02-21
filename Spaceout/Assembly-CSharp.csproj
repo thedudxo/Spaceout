@@ -130,6 +130,7 @@
     <Compile Include="Assets\Project\Scripts\Player\PlayerCamera.cs" />
     <Compile Include="Assets\Project\Scripts\Player\PlayerEngine.cs" />
     <Compile Include="Assets\Project\Scripts\Player\PlayerParticles.cs" />
+    <Compile Include="Assets\Project\Scripts\Player\PlayerSideThrusters.cs" />
     <Compile Include="Assets\Project\Scripts\Player\PlayerSound.cs" />
     <Compile Include="Assets\Project\Scripts\Player\Screenshake.cs" />
     <Compile Include="Assets\Project\Scripts\Player\ScreenshakeManager.cs" />
