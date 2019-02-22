@@ -30,7 +30,6 @@ public class SpaceStar : SpaceObject {
         SpaceObject collision = collider.gameObject.GetComponent<SpaceObject>();
 
         if (collision == null) { return; }
-        Debug.Log(collision);
         collision.Destroy();
         
 

@@ -10,8 +10,12 @@ public class SpaceObject : MonoBehaviour {
     static readonly float gConstant = 10f;
     static readonly float distanceMultiplyer = 210f;
 
-    public static float RandomPosMaxRadius = -200; // += ring radius (done in manager)
-    public static float RandomPosMinRadius = +500; // += star radius
+    public static float
+        RandomRotationMaxForce =  1000000 ,
+        RandomMaxSize          =  70,
+        RandomMinSize          =  5,
+        RandomPosMaxRadius     = -200, // += ring radius (done in manager)
+        RandomPosMinRadius     = +500; // += star radius
 
     public Rigidbody rb;
 
@@ -104,9 +108,42 @@ public class SpaceObject : MonoBehaviour {
 
     }
 
+    protected void RandomRotation()
+    {
+        rb.transform.Rotate(new Vector3(
+            Random.Range(0, 360),
+            Random.Range(0, 360),
+            Random.Range(0, 360)
+            ));
+        
+
+        rb.AddTorque(new Vector3(
+            Random.Range(0, RandomRotationMaxForce),
+            Random.Range(0, RandomRotationMaxForce),
+            Random.Range(0, RandomRotationMaxForce)
+            ) * rb.mass);
+
+    }
+
+    protected void RandomSize()
+    {
+        float size = Random.Range(RandomMinSize, RandomMaxSize);
+
+        transform.localScale = new Vector3(
+            size,
+            size,
+            size
+            );
+
+        rb.mass = (size * 10) * 2;
+    }
+
     virtual public void Destroy()
     {
-        Debug.Log("problem");
+        RandomPosition();
+        RandomRotation();
+        RandomSize();
+        SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>());
     }
 
     public Rigidbody GetRigidBody()

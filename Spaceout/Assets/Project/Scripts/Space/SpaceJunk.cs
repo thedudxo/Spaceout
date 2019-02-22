@@ -11,6 +11,8 @@ public class SpaceJunk : SpaceObject {
     {
         base.Start();
         RandomPosition();
+        RandomRotation();
+        RandomSize();
         SetStableOrbit(Manager.instance.star.GetComponent<SpaceObject>() , orbitDirection);
     }
 
